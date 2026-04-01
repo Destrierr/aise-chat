@@ -34,7 +34,7 @@ class _TypingBubbleState extends State<TypingBubble>
         margin: const EdgeInsets.symmetric(vertical: 6),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -57,11 +57,11 @@ class _TypingBubbleState extends State<TypingBubble>
           width: 6,
           height: 6,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(opacity),
+            color: Colors.grey.withOpacity(opacity),
             shape: BoxShape.circle,
           ),
         );
       },
-    );  
+    );
   }
 }

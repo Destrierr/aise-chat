@@ -15,6 +15,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final ScrollController _scrollController = ScrollController();
+  bool isTyping = false;
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -38,18 +39,16 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [Color(0xFF2A0845), Colors.black]),
-        ),
+        decoration: const BoxDecoration(color: Colors.white),
         child: SafeArea(
           child: Column(
             children: [
-              const ChatHeader(),
+              ChatHeader(isTyping: isTyping),
 
               Expanded(
                 child: BlocConsumer<ChatBloc, ChatState>(
                   listener: (context, state) {
-                    // 🔥 auto scroll setiap ada message / loading berubah
+                    // auto scroll setiap ada message / loading berubah
                     _scrollToBottom();
                   },
                   builder: (context, state) {
@@ -59,7 +58,7 @@ class _ChatPageState extends State<ChatPage> {
                           child: ChatList(
                             messages: state.messages,
                             isLoading: state.loading,
-                            scrollController: _scrollController, // 🔥 PASS INI
+                            scrollController: _scrollController, // PASS INI
                           ),
                         ),
                         const ChatInputBar(),

@@ -27,22 +27,23 @@ class _ChatInputBarState extends State<ChatInputBar> {
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.08),
+        color: Colors.grey[100],
+        border: Border.all(color: Colors.grey[300]!),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
         children: [
-          const Icon(Icons.add, color: Colors.white),
+          const Icon(Icons.add, color: Colors.blueGrey),
           const SizedBox(width: 10),
 
           Expanded(
             child: TextField(
               controller: controller,
-              style: const TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.blueGrey),
               decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: "Enter Message",
-                hintStyle: TextStyle(color: Colors.white54),
+                hintStyle: TextStyle(color: Colors.blueGrey),
               ),
               onSubmitted: (_) => send(),
             ),
